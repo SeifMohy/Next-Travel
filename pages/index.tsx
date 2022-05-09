@@ -1,7 +1,6 @@
 import Head from "next/head";
-import Image from "next/image";
-import styles from "../styles/Home.module.css";
 import info from "./api/data/info.json";
+
 
 export default function Home() {
   return (
@@ -12,19 +11,15 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <div className="nav">
-        <h1 className="p-5 font-bold text-blue-400 text-2xl ">Next Travel</h1>
-      </div>
-
       <main>
         <img
           className="w-full h-80 object-cover object-center"
           src="img/homePagePic.jpeg"
         />
         <div>
-          {info.data.map((place) => {
+          {info.data.map((place, idx) => {
             return (
-              <div className="flex-col h-60 w-120">
+              <div key={idx} className="flex-col h-60 w-120">
                 <img
                   className="object-scale-down h-48 w-96"
                   src={place.imgURL}
